@@ -1,0 +1,48 @@
+entity TResource {
+	name String,
+	description String,
+	category String,
+	color String,
+	material String,
+	unitPrice Long,
+	length Long,
+	width Long,
+	height Long,
+	weight Long,
+	innerId Long,
+	outerId Long,
+	status String,
+	vendor String
+}
+
+entity TActivity {
+	name String,
+	description String,
+	category String,
+	objective String,
+	concept String,
+	activityTime Long,
+	totalTime Long,
+	tags String,
+	status String
+}
+
+
+
+
+
+
+
+
+
+
+
+// Set pagination options
+
+paginate TResource,TActivity with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+

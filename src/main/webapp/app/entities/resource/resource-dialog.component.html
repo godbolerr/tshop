@@ -1,0 +1,95 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myResourceLabel" jhiTranslate="tshopApp.resource.home.createOrEditLabel">Create or edit a Resource</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!resource.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="resource.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="resource.name"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="resource.description"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.category" for="field_category">Category</label>
+            <input type="text" class="form-control" name="category" id="field_category"
+                [(ngModel)]="resource.category"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.color" for="field_color">Color</label>
+            <input type="text" class="form-control" name="color" id="field_color"
+                [(ngModel)]="resource.color"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.material" for="field_material">Material</label>
+            <input type="text" class="form-control" name="material" id="field_material"
+                [(ngModel)]="resource.material"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.unitPrice" for="field_unitPrice">Unit Price</label>
+            <input type="number" class="form-control" name="unitPrice" id="field_unitPrice"
+                [(ngModel)]="resource.unitPrice"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.length" for="field_length">Length</label>
+            <input type="number" class="form-control" name="length" id="field_length"
+                [(ngModel)]="resource.length"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.width" for="field_width">Width</label>
+            <input type="number" class="form-control" name="width" id="field_width"
+                [(ngModel)]="resource.width"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.height" for="field_height">Height</label>
+            <input type="number" class="form-control" name="height" id="field_height"
+                [(ngModel)]="resource.height"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.weight" for="field_weight">Weight</label>
+            <input type="number" class="form-control" name="weight" id="field_weight"
+                [(ngModel)]="resource.weight"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.innerId" for="field_innerId">Inner Id</label>
+            <input type="number" class="form-control" name="innerId" id="field_innerId"
+                [(ngModel)]="resource.innerId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.outerId" for="field_outerId">Outer Id</label>
+            <input type="number" class="form-control" name="outerId" id="field_outerId"
+                [(ngModel)]="resource.outerId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.status" for="field_status">Status</label>
+            <input type="text" class="form-control" name="status" id="field_status"
+                [(ngModel)]="resource.status"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.resource.vendor" for="field_vendor">Vendor</label>
+            <input type="text" class="form-control" name="vendor" id="field_vendor"
+                [(ngModel)]="resource.vendor"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

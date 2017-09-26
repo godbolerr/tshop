@@ -1,0 +1,29 @@
+{
+    "tshopApp": {
+        "tActivity" : {
+            "home": {
+                "title": "T Activities",
+                "createLabel": "Create a new T Activity",
+                "createOrEditLabel": "Create or edit a T Activity"
+            },
+            "created": "A new T Activity is created with identifier {{ param }}",
+            "updated": "A T Activity is updated with identifier {{ param }}",
+            "deleted": "A T Activity is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete T Activity {{ id }}?"
+            },
+            "detail": {
+                "title": "T Activity"
+            },
+            "name": "Name",
+            "description": "Description",
+            "category": "Category",
+            "objective": "Objective",
+            "concept": "Concept",
+            "activityTime": "Activity Time",
+            "totalTime": "Total Time",
+            "tags": "Tags",
+            "status": "Status"
+        }
+    }
+}

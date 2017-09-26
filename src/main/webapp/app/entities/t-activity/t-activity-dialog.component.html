@@ -1,0 +1,70 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTActivityLabel" jhiTranslate="tshopApp.tActivity.home.createOrEditLabel">Create or edit a T Activity</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!tActivity.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="tActivity.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.tActivity.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="tActivity.name"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.tActivity.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="tActivity.description"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.tActivity.category" for="field_category">Category</label>
+            <input type="text" class="form-control" name="category" id="field_category"
+                [(ngModel)]="tActivity.category"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.tActivity.objective" for="field_objective">Objective</label>
+            <input type="text" class="form-control" name="objective" id="field_objective"
+                [(ngModel)]="tActivity.objective"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.tActivity.concept" for="field_concept">Concept</label>
+            <input type="text" class="form-control" name="concept" id="field_concept"
+                [(ngModel)]="tActivity.concept"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.tActivity.activityTime" for="field_activityTime">Activity Time</label>
+            <input type="number" class="form-control" name="activityTime" id="field_activityTime"
+                [(ngModel)]="tActivity.activityTime"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.tActivity.totalTime" for="field_totalTime">Total Time</label>
+            <input type="number" class="form-control" name="totalTime" id="field_totalTime"
+                [(ngModel)]="tActivity.totalTime"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.tActivity.tags" for="field_tags">Tags</label>
+            <input type="text" class="form-control" name="tags" id="field_tags"
+                [(ngModel)]="tActivity.tags"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tshopApp.tActivity.status" for="field_status">Status</label>
+            <input type="text" class="form-control" name="status" id="field_status"
+                [(ngModel)]="tActivity.status"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

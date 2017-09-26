@@ -1,0 +1,67 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "color",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "material",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unitPrice",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "length",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "width",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "height",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "innerId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "outerId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vendor",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170926065957",
+    "entityTableName": "t_resource",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl"
+}

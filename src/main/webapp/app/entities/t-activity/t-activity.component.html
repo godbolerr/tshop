@@ -1,0 +1,80 @@
+<div>
+    <h2>
+        <span jhiTranslate="tshopApp.tActivity.home.title">T Activities</span>
+        <button class="btn btn-primary float-right jh-create-entity create-t-activity" [routerLink]="['/', { outlets: { popup: ['t-activity-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="tshopApp.tActivity.home.createLabel">
+            Create new T Activity
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="tActivities">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="tshopApp.tActivity.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="description"><span jhiTranslate="tshopApp.tActivity.description">Description</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="category"><span jhiTranslate="tshopApp.tActivity.category">Category</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="objective"><span jhiTranslate="tshopApp.tActivity.objective">Objective</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="concept"><span jhiTranslate="tshopApp.tActivity.concept">Concept</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="activityTime"><span jhiTranslate="tshopApp.tActivity.activityTime">Activity Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="totalTime"><span jhiTranslate="tshopApp.tActivity.totalTime">Total Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="tags"><span jhiTranslate="tshopApp.tActivity.tags">Tags</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="status"><span jhiTranslate="tshopApp.tActivity.status">Status</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tActivity of tActivities ;trackBy: trackId">
+                <td><a [routerLink]="['../t-activity', tActivity.id ]">{{tActivity.id}}</a></td>
+                <td>{{tActivity.name}}</td>
+                <td>{{tActivity.description}}</td>
+                <td>{{tActivity.category}}</td>
+                <td>{{tActivity.objective}}</td>
+                <td>{{tActivity.concept}}</td>
+                <td>{{tActivity.activityTime}}</td>
+                <td>{{tActivity.totalTime}}</td>
+                <td>{{tActivity.tags}}</td>
+                <td>{{tActivity.status}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../t-activity', tActivity.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 't-activity/'+ tActivity.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 't-activity/'+ tActivity.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="tActivities && tActivities.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

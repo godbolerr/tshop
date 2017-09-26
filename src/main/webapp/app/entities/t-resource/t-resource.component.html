@@ -1,0 +1,90 @@
+<div>
+    <h2>
+        <span jhiTranslate="tshopApp.tResource.home.title">T Resources</span>
+        <button class="btn btn-primary float-right jh-create-entity create-t-resource" [routerLink]="['/', { outlets: { popup: ['t-resource-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="tshopApp.tResource.home.createLabel">
+            Create new T Resource
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="tResources">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="tshopApp.tResource.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="description"><span jhiTranslate="tshopApp.tResource.description">Description</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="category"><span jhiTranslate="tshopApp.tResource.category">Category</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="color"><span jhiTranslate="tshopApp.tResource.color">Color</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="material"><span jhiTranslate="tshopApp.tResource.material">Material</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="unitPrice"><span jhiTranslate="tshopApp.tResource.unitPrice">Unit Price</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="length"><span jhiTranslate="tshopApp.tResource.length">Length</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="width"><span jhiTranslate="tshopApp.tResource.width">Width</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="height"><span jhiTranslate="tshopApp.tResource.height">Height</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="weight"><span jhiTranslate="tshopApp.tResource.weight">Weight</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="innerId"><span jhiTranslate="tshopApp.tResource.innerId">Inner Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="outerId"><span jhiTranslate="tshopApp.tResource.outerId">Outer Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="status"><span jhiTranslate="tshopApp.tResource.status">Status</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="vendor"><span jhiTranslate="tshopApp.tResource.vendor">Vendor</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tResource of tResources ;trackBy: trackId">
+                <td><a [routerLink]="['../t-resource', tResource.id ]">{{tResource.id}}</a></td>
+                <td>{{tResource.name}}</td>
+                <td>{{tResource.description}}</td>
+                <td>{{tResource.category}}</td>
+                <td>{{tResource.color}}</td>
+                <td>{{tResource.material}}</td>
+                <td>{{tResource.unitPrice}}</td>
+                <td>{{tResource.length}}</td>
+                <td>{{tResource.width}}</td>
+                <td>{{tResource.height}}</td>
+                <td>{{tResource.weight}}</td>
+                <td>{{tResource.innerId}}</td>
+                <td>{{tResource.outerId}}</td>
+                <td>{{tResource.status}}</td>
+                <td>{{tResource.vendor}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../t-resource', tResource.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 't-resource/'+ tResource.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 't-resource/'+ tResource.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="tResources && tResources.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

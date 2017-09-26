@@ -1,0 +1,77 @@
+
+<div *ngIf="resource">
+    <h2><span jhiTranslate="tshopApp.resource.detail.title">Resource</span> {{resource.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="tshopApp.resource.name">Name</span></dt>
+        <dd>
+            <span>{{resource.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.resource.description">Description</span></dt>
+        <dd>
+            <span>{{resource.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.resource.category">Category</span></dt>
+        <dd>
+            <span>{{resource.category}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.resource.color">Color</span></dt>
+        <dd>
+            <span>{{resource.color}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.resource.material">Material</span></dt>
+        <dd>
+            <span>{{resource.material}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.resource.unitPrice">Unit Price</span></dt>
+        <dd>
+            <span>{{resource.unitPrice}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.resource.length">Length</span></dt>
+        <dd>
+            <span>{{resource.length}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.resource.width">Width</span></dt>
+        <dd>
+            <span>{{resource.width}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.resource.height">Height</span></dt>
+        <dd>
+            <span>{{resource.height}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.resource.weight">Weight</span></dt>
+        <dd>
+            <span>{{resource.weight}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.resource.innerId">Inner Id</span></dt>
+        <dd>
+            <span>{{resource.innerId}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.resource.outerId">Outer Id</span></dt>
+        <dd>
+            <span>{{resource.outerId}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.resource.status">Status</span></dt>
+        <dd>
+            <span>{{resource.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.resource.vendor">Vendor</span></dt>
+        <dd>
+            <span>{{resource.vendor}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'resource/'+ resource.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

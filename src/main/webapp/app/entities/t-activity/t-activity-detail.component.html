@@ -1,0 +1,57 @@
+
+<div *ngIf="tActivity">
+    <h2><span jhiTranslate="tshopApp.tActivity.detail.title">T Activity</span> {{tActivity.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="tshopApp.tActivity.name">Name</span></dt>
+        <dd>
+            <span>{{tActivity.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.tActivity.description">Description</span></dt>
+        <dd>
+            <span>{{tActivity.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.tActivity.category">Category</span></dt>
+        <dd>
+            <span>{{tActivity.category}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.tActivity.objective">Objective</span></dt>
+        <dd>
+            <span>{{tActivity.objective}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.tActivity.concept">Concept</span></dt>
+        <dd>
+            <span>{{tActivity.concept}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.tActivity.activityTime">Activity Time</span></dt>
+        <dd>
+            <span>{{tActivity.activityTime}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.tActivity.totalTime">Total Time</span></dt>
+        <dd>
+            <span>{{tActivity.totalTime}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.tActivity.tags">Tags</span></dt>
+        <dd>
+            <span>{{tActivity.tags}}</span>
+        </dd>
+        <dt><span jhiTranslate="tshopApp.tActivity.status">Status</span></dt>
+        <dd>
+            <span>{{tActivity.status}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 't-activity/'+ tActivity.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
